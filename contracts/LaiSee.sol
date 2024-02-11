@@ -58,7 +58,7 @@ contract LaiSee {
         }
 
         // transfer the LaiSeeAmount to the sender
-        require(owner.send(LaiSeeAmount), "transfer failed");
+        require(payable(msg.sender).send(LaiSeeAmount), "transfer failed");
         emit LaiSeeEvent(msg.sender, LaiSeeAmount, LaiSeeCount, block.timestamp);
         TotalLaiSeeAmount += LaiSeeAmount;
         LaiSeeCount++;
